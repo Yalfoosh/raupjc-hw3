@@ -1,0 +1,32 @@
+﻿@using Z2.Models
+@model Z2.Models.AddTodoViewModel
+
+<html>
+
+<head>
+    <title>Dodajte novi posao</title>
+</head>
+
+<body>
+    <h1>Dodavanje</h1>
+
+    <form asp-action="AddItem" method="get">
+        <div class="form-group">
+            <label for="Text">Naziv posla:</label>
+            <input asp-for="Text" class="form-control"/>
+            <span class="form-text text-muted" asp-validation-for="Text"></span>
+
+            <label for="Labels">Naziv labele:</label>
+            <input class="form-control" asp-for="Labels"/>
+            <span class="form-text text-muted" asp-validation-for="Labels"></span>
+
+            <label for="DateDue">Krajnji rok posla:</label>
+            <input class="form-control" asp-for="DateDue" type="datetime"/>
+            <span class="form-text text-muted" asp-validation-for="DateDue"></span>
+
+            <input type="submit" class="btn btn-primary"/>
+        </div>
+    </form>
+</body>
+
+</html>
