@@ -21,8 +21,6 @@ namespace HW3
             builder.Entity<TodoItem>().Property(x => x.UserId).IsRequired();
             builder.Entity<TodoItem>().Property(x => x.Text).IsRequired();
             builder.Entity<TodoItem>().Property(x => x.DateCreated).IsRequired();
-            builder.Entity<TodoItem>().Property(x => x.DateDue);
-            builder.Entity<TodoItem>().Property(x => x.DateCompleted);
 
 
             builder.Entity<TodoItemLabel>().HasKey(x => x.Id);

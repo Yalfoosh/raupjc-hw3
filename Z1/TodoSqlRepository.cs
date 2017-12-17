@@ -210,19 +210,19 @@ namespace HW3
                                                                               .ToListAsync();
 
         public List<TodoItem> GetActive(Guid userId) => 
-            _context.Items.Where(item => item.UserId.Equals(userId) && !item.IsCompleted)
+            _context.Items.Where(item => item.UserId.Equals(userId) && !item.DateCompleted.HasValue)
                           .ToList();
 
         public Task<List<TodoItem>> GetActiveAsync(Guid userId) =>
-            _context.Items.Where(item => item.UserId.Equals(userId) && !item.IsCompleted)
+            _context.Items.Where(item => item.UserId.Equals(userId) && !item.DateCompleted.HasValue)
                           .ToListAsync();
 
         public List<TodoItem> GetCompleted(Guid userId) =>
-            _context.Items.Where(item => item.UserId.Equals(userId) && item.IsCompleted)
+            _context.Items.Where(item => item.UserId.Equals(userId) && item.DateCompleted.HasValue)
                           .ToList();
 
         public Task<List<TodoItem>> GetCompletedAsync(Guid userId) => 
-            _context.Items.Where(item => item.UserId.Equals(userId) && item.IsCompleted)
+            _context.Items.Where(item => item.UserId.Equals(userId) && item.DateCompleted.HasValue)
                           .ToListAsync();
 
         public List<TodoItem> GetFiltered(Func<TodoItem, bool> filterFunction, Guid userId) => 
