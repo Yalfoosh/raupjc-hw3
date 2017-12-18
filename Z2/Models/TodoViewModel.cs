@@ -28,13 +28,13 @@ namespace Z2.Models
             TimeSpan left = (DateTime)DateDue - DateTime.Now;
 
             int Days = (int)Math.Floor(left.TotalDays);
-            int Hours = (int)Math.Floor(left.TotalHours);
-            int Minutes = (int)Math.Floor(left.TotalMinutes);
+            int Hours = (int)Math.Floor((double)left.Hours);
+            int Minutes = (int)Math.Floor((double)left.Minutes);
 
             string toRet = "Još " + Days;
 
             toRet += Days == 1 ? " dan, " : " dana, ";
-            toRet += Hours + (Hours == 1 ? " sat, " : Hours < 5 ? " sata, " : " sati, ");
+            toRet += Hours + ((Hours == 1 || Hours == 21) ? " sat, " : Hours < 5 || (Hours > 21 && Hours < 24) ? " sata, " : " sati, ");
             toRet += Minutes + (Minutes > 1 && Minutes < 5 ? " minute." : " minuta");
 
             return toRet;

@@ -5,7 +5,7 @@
 
     @if (Model.DateDue.HasValue)
     {
-        @Model.DateDue.Value.ToString("d. mmmm yyyy.")
+        @Model.DateDue.Value.ToString("d. MM. yyyy.")
         if (Model.ShowReminder())
          {
             <span class="text-danger">(@Model.Remaining())</span>

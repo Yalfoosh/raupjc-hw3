@@ -45,10 +45,12 @@ namespace HW3
         {
             if (todoItem != null)
             {
-                if (_context.Items.Contains(todoItem))
+                var item = _context.Items.Find(todoItem.Id);
+
+                if(item != null)
                     throw new DuplicateTodoItemException("duplicate id: {" + todoItem.Id + "}");
 
-                _context.Items.Add(todoItem);
+                _context.Items?.Add(todoItem);
                 _context.SaveChanges();
             }
         }
@@ -67,8 +69,10 @@ namespace HW3
 
         public void AddLabel(string text, Guid todoId)
         {
+            Console.WriteLine(text);
+
             var item = _context.Items.Find(todoId);
-            var label = _context.Labels.FirstOrDefault(x => x.Value == text);
+            var label = _context.Labels.Find(text);
 
             if (item != null)
             {

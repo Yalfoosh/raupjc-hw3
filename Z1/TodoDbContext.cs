@@ -24,6 +24,7 @@ namespace HW3
 
 
             builder.Entity<TodoItemLabel>().HasKey(x => x.Id);
+            builder.Entity<TodoItemLabel>().HasKey(x => x.Value);
 
             builder.Entity<TodoItemLabel>().Property(x => x.Id).IsRequired();
             builder.Entity<TodoItemLabel>().Property(x => x.Value).IsRequired();
